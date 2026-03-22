@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ["*"]
 
 REST_FRAMEWORK= {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
@@ -45,7 +45,7 @@ REST_FRAMEWORK= {
 
 
 SIMPLE_JWT= {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minute=30),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 
@@ -72,7 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "corsheader.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'backend.urls'
